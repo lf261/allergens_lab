@@ -1,0 +1,18 @@
+<h1> User Show Page </h1>
+
+<h2>Name: <%= @user.name %></h2>
+<h2>Recipes:</h2>
+<ol>
+    <% @user.recipes.each do |r| %>
+        <li><%= r.name %></li>
+    <% end %>
+</ol>
+<h2>Allergies:</h2>
+<ol>
+    <% @user.allergies.each do |r| %>
+        <li><%= r.ingredient.name %></li>
+    <% end %>
+</ol>
+
+<h3><%= button_to 'Delete This User', user_path(@user), method: :delete , data: {confirm: "Sure?"}%></h3>
+
