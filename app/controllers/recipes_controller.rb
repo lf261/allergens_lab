@@ -1,7 +1,11 @@
 class RecipesController < ApplicationController
 
     def index
-        @recipes = Recipe.all
+        if params['sort_by'] == 'ingredients'
+            @recipes = Recipe.sort_by_number_of_ingredents
+        else
+            @recipes = Recipe.all
+        end
     end
 
     def new
